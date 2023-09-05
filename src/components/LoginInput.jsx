@@ -6,12 +6,13 @@ function LoginInput({ login }) {
 	const [email, onEmailChange] = useInput("");
 	const [password, onPasswordChange] = useInput("");
 
-	function onSubmitHandler() {
+	function onSubmitHandler(e) {
+		e.preventDefault();
 		login({ email, password });
 	}
 
 	return (
-		<div className="input-login">
+		<form className="input-login" onSubmit={onSubmitHandler}>
 			<InputField
 				type="email"
 				name="email"
@@ -26,10 +27,10 @@ function LoginInput({ login }) {
 				value={password}
 				onChange={onPasswordChange}
 			/>
-			<button type="button" onClick={onSubmitHandler}>
+			<button type="submit">
 				Login
 			</button>
-		</div>
+		</form>
 	);
 }
 

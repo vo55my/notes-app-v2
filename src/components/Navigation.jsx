@@ -19,7 +19,7 @@ function Navigation({ logout, name }) {
                {locale === "id" ? "Aplikasi Catatan" : "Notes App"}
             </Link>
          </h1>
-         {accessToken ? (
+         {accessToken && (
             <nav className="navigation">
                <ul>
                   <li>
@@ -29,7 +29,7 @@ function Navigation({ logout, name }) {
                   </li>
                </ul>
             </nav>
-         ) : null}
+         )}
          <button className="toggle-locale" type="button" onClick={toggleLocale}>
             <MdGTranslate />
          </button>
